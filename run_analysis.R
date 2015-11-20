@@ -61,15 +61,13 @@ head(mrgdat)
 # Subset finalData table based on the logicalVector to keep only desired columns
 finalData = mrgdat[logicalVector==TRUE];
 
-# 3. Use descriptive activity names to name the activities in the data set
+
 
 # Merge the finalData set with the acitivityType table to include descriptive activity names
 finalData = merge(finalData,activityType,by='activityId',all.x=TRUE);
 
 # Updating the colNames vector to include the new column names after merge
 colNames  = colnames(finalData); 
-
-# 4. Appropriately label the data set with descriptive activity names. 
 
 # Cleaning up the variable names
 for (i in 1:length(colNames)) 
@@ -91,7 +89,7 @@ for (i in 1:length(colNames))
 # Reassigning the new descriptive column names to the finalData set
 colnames(finalData) = colNames;
 
-# 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject. 
+
 
 # Create a new table, finalDataNoActivityType without the activityType column
 finalDataNoActivityType  = finalData[,names(finalData) != 'activityType'];
